@@ -25,13 +25,13 @@ plot1 <- function() {
     names(NEI) <- c("Year", "TotalEmissions")
 
     ## Create and save plot as a PNG file
-    PNG_Plot1()
+    PNG_Plot1(NEI)
 }
 
 PNG_Plot1 <- function(data) {
     
     ## Create graphics device object for PNG file to be output
-    png(filename = "plot4.png",
+    png(filename = "./code/plot1.png",
         width = 480,
         height = 480,
         units = "px",
@@ -41,7 +41,8 @@ PNG_Plot1 <- function(data) {
     plot(data$Year, data$TotalEmissions, pch = 20,
          main="Total PM2.5 Emissions in the United States",
          xlab="Year",
-         ylab="Total Emissions")
+         ylab="Total Emissions",
+         xlim=c(1998,2008))
     model <- lm(data$TotalEmissions ~ data$Year, data)
     abline(model, lwd=2)    
     
