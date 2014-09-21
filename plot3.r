@@ -12,6 +12,7 @@
 ## #####################################################################################################
 ## #####################################################################################################
 
+## main function for reading, processing, and plotting plot 3
 plot3 <- function() {
     
     source("./code/readRDSFile.r")
@@ -30,6 +31,7 @@ plot3 <- function() {
     PNG_Plot3(NEI)
 }
 
+## helper function for plotting data to PNG file
 PNG_Plot3 <- function(data) {
 
     library(ggplot2)
@@ -43,13 +45,13 @@ PNG_Plot3 <- function(data) {
     
     ## Use ggplot2 system to plot the data and linear regression lines
     g <- ggplot(data, aes(x=Year, y=TotalEmissions), fill=seq(1:4))
-    g <- g + geom_point(aes(group=Type, color=Type, size=2)) + 
-        geom_smooth(aes(group=Type, color=Type), method="lm", se=FALSE, size=1.5) + 
+    g <- g + geom_point(aes(Year, TotalEmissions, group=Type, color=Type)) + 
+        geom_smooth(aes(group=Type, color=Type), method="lm", se=FALSE) + 
         labs(x="Year") + 
         labs(y="Total Emissions") + 
         labs(title="PM2.5 Emissions by Type for Baltimore City") + 
-        theme(legend.position="bottom") + 
-        scale_x_continuous(breaks=c(1999, 2002, 2005, 2008))
+        scale_x_continuous(breaks=c(1999, 2002, 2005, 2008)) +
+        theme(legend.position="bottom") 
     print(g)
     
     dev.off()
