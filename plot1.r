@@ -11,6 +11,7 @@
 ## #####################################################################################################
 ## #####################################################################################################
 
+## main function for reading, processing, and plotting plot1
 plot1 <- function() {
 
     source("./code/readRDSFile.r")
@@ -28,6 +29,7 @@ plot1 <- function() {
     PNG_Plot1(NEI)
 }
 
+## helper function for plotting data to PNG file
 PNG_Plot1 <- function(data) {
     
     ## Create graphics device object for PNG file to be output
