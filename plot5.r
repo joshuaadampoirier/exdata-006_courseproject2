@@ -28,7 +28,7 @@ plot5 <- function() {
     NEI <- inner_join(SCC, NEI, by="SCC")
     rm(SCC)     # memory cleanup
     
-    ## sum the emissions (sourced from coal) by year for Baltimore City (fips = "24510")
+    ## sum the emissions (sourced from motor vehicles) by year for Baltimore City (fips = "24510")
     NEI <- NEI[NEI$fips=="24510",]
     NEI <- aggregate(data.frame(NEI$Emissions), 
                      by=list(NEI$year), 
