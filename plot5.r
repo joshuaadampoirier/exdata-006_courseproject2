@@ -7,6 +7,7 @@
 ## PURPOSE:     To answer the following question (quoted from the Course Project submission page):
 ##                  How have emissions from motor vehicle sources changed from 1999-2008 in Baltimore
 ##                  City?
+## MORE:        Find more information on this program in the README.md
 ## #####################################################################################################
 ## #####################################################################################################
 
@@ -20,11 +21,11 @@ plot5 <- function() {
     NEI <- readRDSFile("summarySCC_PM25.rds")
     SCC <- readRDSFile("Source_Classification_Code.rds")
     
-    ## Subset SCC to only coal combustion-related sources, ie contain the word "Coal"
+    ## Subset SCC to only motor vehicle sources, ie contain the word "Vehicles"
     y <- unlist(lapply(SCC$EI.Sector, function(x){grepl("Vehicles",x)}))
     SCC <- SCC[y,]
     
-    ## applying inner_join to NEI and SCC subsets NEI to only rows which match (ie coal sources)
+    ## applying inner_join to NEI and SCC subsets NEI to only rows which match (ie motor vehicle sources)
     NEI <- inner_join(SCC, NEI, by="SCC")
     rm(SCC)     # memory cleanup
     

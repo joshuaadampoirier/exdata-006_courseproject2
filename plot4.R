@@ -7,6 +7,7 @@
 ## PURPOSE:     To answer the following question (quoted from the Course Project submission page):
 ##                  Across the United States, how have emissions from coal combustion-related sources 
 ##                  changed from 1999-2008?
+## MORE:        Find more information on this program in the README.md
 ## #####################################################################################################
 ## #####################################################################################################
 

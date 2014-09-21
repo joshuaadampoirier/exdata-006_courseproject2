@@ -9,6 +9,7 @@
 ##                  nonroad) variable, which of these four sources have seen decreases in emissions 
 ##                  from 1999-2008 for Baltimore City?  Which have seen increases in emissions from 
 ##                  1999-2008?  Use the ggplot2 plotting system to make a plot answer this question.
+## MORE:        Find more information on this program in the README.md
 ## #####################################################################################################
 ## #####################################################################################################
 
@@ -20,7 +21,7 @@ plot3 <- function() {
     ## Call readRDSFile() helper function to download, unzip, and read in the data
     NEI <- readRDSFile("summarySCC_PM25.rds")
     
-    ## Limit data set to Baltimore City (fips = 24510), and sum emissions by year
+    ## Limit data set to Baltimore City (fips = 24510), and sum emissions by year and by type
     NEI <- NEI[NEI$fips=="24510",]
     NEI <- aggregate(data.frame(NEI$Emissions), 
                      by=list(NEI$type, NEI$year), 
